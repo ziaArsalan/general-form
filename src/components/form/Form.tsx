@@ -3,63 +3,12 @@ import React, { useState } from 'react';
 import SelectField from '../select-field/SelectField';
 import ButtonPrimary from '../button-primary/ButtonPrimary';
 import InputField from '../input-field/InputField';
+
+import { FormProps, element, labelParameters, category } from './Form.interface'
 import { SelectFieldProps } from '../select-field/SelectField.interface'
 import { InputFieldProps } from '../input-field/InputField.interface';
 
-type unknowobject = {[key: string]: any}
-
-type category = 'label' | 'select' | 'input'
-
-interface inputParameters{
-    inputClass  : string,
-    inputStyle  : React.CSSProperties,
-    name        : string,
-    type        : string,
-    placeholder : string,
-    readonly    : boolean
-}
-
-type labelParameters = {
-    innerText : string,
-}
-
-interface selecParameters extends inputParameters{
-    options : {label: string, value: unknown}[]
-}
-
-type parameterMap = {
-    label  : labelParameters,
-    input  : InputFieldProps,
-    select : SelectFieldProps
-}
-
-
-type element<T extends category> = {
-    category   : category
-    className? : string
-    style?     : React.CSSProperties
-    parameters : parameterMap[T]
-}
-
-type submitBtn = {
-    className? : string
-    style?     : React.CSSProperties
-    text       : string
-}
-
-type Props = {
-    initState       : unknowobject
-    schema          : unknown
-    Submit          : (form: unknowobject) => void | Promise<any>
-    isInitialValid? : boolean,
-    handleSubmit?   : (form: unknowobject) => unknowobject | Promise<any>,
-    formClass?      : string,
-    formStyle?      : React.CSSProperties,
-    elements        : element<category>[],
-    submitBtn       : submitBtn
-}
-
-function Form(props: Props) {
+function Form(props: FormProps) {
 
     const [state, setState] = useState({
         processing : false,

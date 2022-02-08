@@ -1,3 +1,7 @@
+// Bootstrap
+import 'bootstrap/dist/js/bootstrap.bundle.min'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import React from 'react';
 import './App.scss';
 import Form from './components/form/Form'
