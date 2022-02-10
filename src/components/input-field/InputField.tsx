@@ -1,6 +1,5 @@
 import React from 'react'
 import { InputFieldProps } from './InputField.interface'
-import PropTypes from 'prop-types'
 
 import './InputField.scss'
 

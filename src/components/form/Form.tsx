@@ -17,14 +17,14 @@ function Form(props: FormProps) {
 
     const Submit = async () => {
         setState({processing: true, error: ''})
-        const {error} = props.handleSubmit && await props.handleSubmit(formik.values)
+        const {error}: any = props.Submit && await props.Submit(formik.values)
         if(error) return setState({processing: false, error: error.message})
         setState({processing: false, error: ''})
     }
 
     const formik = useFormik({
         initialValues    : { ...props.initState },
-        onSubmit         : props.Submit,
+        onSubmit         : Submit,
         validationSchema : props.schema,
         isInitialValid   : props.isInitialValid || false
     })

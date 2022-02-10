@@ -33,7 +33,6 @@ export type FormProps = {
     schema          : unknown
     Submit          : (form: unknowobject) => void | Promise<any>
     isInitialValid? : boolean,
-    handleSubmit?   : (form: unknowobject) => unknowobject | Promise<any>,
     formClass?      : string,
     formStyle?      : React.CSSProperties,
     elements        : element<category>[],
